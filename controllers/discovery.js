@@ -7,7 +7,7 @@ router.get("/", async (req, res) =>
     services: [
       {
         hook: "patient-view",
-        id: "steps",
+        id: "sample-app",
         title: "A Patient App",
         description: "A CDS service for your app.",
         prefetch: {

@@ -17,7 +17,7 @@ router.post("/", [authenticateEhr, authenticateClient], async (req, res) => {
   return res.status(200).json({
     cards: {
       uuid: uuidv4(),
-      summary: "Oops, no steps recorded for today!",
+      summary: "App link",
       indicator: "warning",
       detail: `SMART App for ${patient.name[0].given}.`,
       source: {
