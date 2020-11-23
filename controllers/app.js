@@ -34,4 +34,4 @@ router.post("/", [authenticateEhr, authenticateClient], async (req, res) => {
   });
 });
 
-export default router;
+module.exports = router;

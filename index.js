@@ -15,5 +15,5 @@ app.use("/cds-services/sample-app", sampleApp);
 app.use("/cds-services", discoveryController);
 
 app.listen(3001, () => {
-  console.log("Server listening");
+  console.log(`Server listening ${3001}`);
 });

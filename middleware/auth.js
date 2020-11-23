@@ -5,7 +5,7 @@ const jwkToPem = require("jwk-to-pem");
 
 const allowedIss = ["https://sandbox.cds-hooks.org"];
 
-const authenticateEhr = (req, res, next) => {
+const authenticateEhr = async (req, res, next) => {
   const token = req.headers.authorization.replace("Bearer ", "");
   const decodedJwt = jwt.decode(token, { complete: true });
   const asymmetricAlgs = ["ES256", "ES384", "ES384", "RS256", "RS384", "RS512"];
@@ -43,9 +43,9 @@ const authenticateEhr = (req, res, next) => {
 
   console.info("Token verified");
   return next();
-}
+};
 
-const authenticateClient = (req, res, next) => {
+const authenticateClient = async (req, res, next) => {
   const { fhirServer: serverUrl, fhirAuthorization } = req.body;
 
   req.fhirClient = new FHIR().client({ serverUrl });
@@ -58,9 +58,9 @@ const authenticateClient = (req, res, next) => {
   req.fhirClient.tokenResponse = fhirAuthorization.access_token;
 
   return next();
-}
+};
 
 module.exports = {
   authenticateEhr,
-  authenticateClient
-}
+  authenticateClient,
+};
